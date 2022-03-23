@@ -1,0 +1,45 @@
+﻿@using EntityLayer.Concrete
+@model List<CargoDetail>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<h2>Kargolar</h2>
+<br />
+@using (Html.BeginForm("Index", "Cargo", FormMethod.Get))
+{
+    <p>
+        Kargo Takip No : @Html.TextBox("p") @*Bir parametre kullanıyorum bunu Controller tarafında kullanıcağım*@
+        <input type="submit" value="Ara" />
+    </p>
+}
+
+<table class="table table-bordered" style="margin-top:20px">
+    <tr>
+        <th>Takip kodu</th>
+        <th>Personel</th>
+        <th>Alıcı</th>
+        <th>Tarih</th>
+        <th>Detaylar</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+
+        <tr>
+            <td>@item.TrackingCode</td>
+            <td>@item.Employee</td>
+            <td>@item.Receiver</td>
+            <td>@item.Date.ToShortDateString()</td>
+            <td><a href="/Cargo/CargoTracking/@item.TrackingCode" class="btn btn-default" style="background-color:lightcoral;color:white">Detay</a></td>
+
+        </tr>
+    }
+
+
+</table>
+<a href="/Cargo/CargoAdd/" class="btn btn-primary">Yeni Kargo Girişi</a>
+
+
+
+
+

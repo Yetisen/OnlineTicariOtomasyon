@@ -1,0 +1,27 @@
+﻿@using EntityLayer.Concrete
+@model List<SalesTransaction>
+
+@{
+    ViewBag.Title = "MyOrders";
+    Layout = "~/Views/Shared/_CariLayout.cshtml";
+}
+<br />
+<h2>Siparişlerim</h2>
+
+<br />
+
+<table class="table table-bordered">
+    <tr>
+        <th>Ürün Adı</th>
+        <th>Fiyat</th>
+        <th>Tarih</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.Product.ProductName</td>
+            <td>@x.UnitPrice</td>
+            <td>@Convert.ToDateTime(x.SalesDate).ToString("dd/MM/yyyy")</td>
+        </tr>
+    }
+</table>

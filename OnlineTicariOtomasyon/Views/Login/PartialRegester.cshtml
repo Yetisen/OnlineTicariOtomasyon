@@ -1,0 +1,29 @@
+﻿<script src="~/Scripts/jquery-3.3.1.js"></script>
+
+
+<div class="login-form login-form-left">
+    <div class="agile-row">
+        <h3>Yeni Müşteri Kayıt</h3>
+        <div class="login-agileits-top">
+            @using (Html.BeginForm("PartialRegester", "Login", FormMethod.Post))
+            {
+                <input type="text" class="name" name="CariName" Placeholder="Adınız" required="" />
+                <input type="text" class="name" name="CariSurname" Placeholder="Soyadınız" required="" />
+                <input type="text" class="name" name="CariCity" Placeholder="Şehir" required="" />
+                <input type="email" class="mail" name="CariMail" Placeholder="Mail Adresiniz" required="" />
+                <input type="password" class="password" name="CariPassword" Placeholder="Şifreniz" required="" />
+                <div class="login-check">
+                    <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i> Kuralları okudum <a href="#">&amp; Kabul Ediyorum</a></label>
+                </div>
+                <input type="submit" value="Kaydol" >
+            }
+        </div>
+    </div>
+</div>
+@*<script>
+        /*btn1 idli elemanım click olduğunda bir fonksiyon çağırılacak*/
+    $('#Btn1').click(function () {
+        
+            alert("Kayıt başarılı bir şekilde eklendi.")
+        });
+</script>*@

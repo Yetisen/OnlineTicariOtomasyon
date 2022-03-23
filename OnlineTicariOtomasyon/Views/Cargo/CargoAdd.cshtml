@@ -1,0 +1,35 @@
+﻿@using EntityLayer.Concrete
+@model CargoDetail
+
+@{
+    ViewBag.Title = "CargoAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Yeni Cargo Sayfası</h2>
+<br />
+
+<form class="form-group" method="post">
+    <div class="form-group">
+        @Html.Label("Takip Kodu")
+        <input type="text" value="@ViewBag.takipkod" name="TrackingCode" class="form-control" readonly />
+
+        <br />
+        @Html.Label("Personel")
+        @Html.TextBoxFor(x => x.Employee, new { @class = "form-control" })
+
+        <br />
+        @Html.Label("Alıcı")
+        @Html.TextBoxFor(x => x.Receiver, new { @class = "form-control" })
+        <br />
+        <input class="form-control" type="date" name="Date" />
+
+        <br />
+        @Html.Label("Açıklama")
+        @Html.TextAreaFor(x => x.Description, new { @class = "form-control" })
+
+        <br /><br />
+        <button class="btn btn-info">Kaydet</button>
+    </div>
+</form>

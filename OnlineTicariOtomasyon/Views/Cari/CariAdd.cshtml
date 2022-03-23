@@ -1,0 +1,34 @@
+﻿@using EntityLayer.Concrete
+@model Cari
+
+@{
+    ViewBag.Title = "CariAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Yeni Cari Sayfası</h2>
+<br />
+
+<form class="form-group" method="post">
+    <div class="form-group">
+        @Html.Label("Cari Adı")
+        @Html.TextBoxFor(x => x.CariName, new { @class = "form-control" })
+
+        <br />
+        @Html.Label("Cari Soyadı")
+        @Html.TextBoxFor(x => x.CariSurname, new { @class = "form-control" })
+
+        <br />
+        @Html.Label("Şehir")
+        @Html.TextBoxFor(x => x.CariCity, new { @class = "form-control" })
+
+        <br />
+        @Html.Label("Mail")
+        @Html.TextBoxFor(x => x.CariMail, new { @class = "form-control" })
+
+        <br /><br />
+        <button class="btn btn-info">Kaydet</button>
+    </div>
+</form>
+

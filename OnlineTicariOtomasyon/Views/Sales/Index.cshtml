@@ -1,0 +1,80 @@
+﻿@using EntityLayer.Concrete
+@model List<SalesTransaction>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+
+<table id="tbl1" class="table table-bordered" style="margin-top:20px">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Ürün</th>
+            <th>Marka</th>
+            <th>Cari</th>
+            <th>Personel</th>
+            <th>Adet</th>
+            <th>Fiyat</th>
+            <th>Toplam</th>
+            <th>Tarih</th>
+            <th>Güncelle</th>
+            <th>Detay</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>@item.SalesTransactionID</td>
+                <td>@item.Product.ProductName</td>
+                <td>@item.Product.Brand</td>
+                <td>@item.Cari.CariName @item.Cari.CariSurname</td>
+                <td>@item.Employee.EmployeeName @item.Employee.EmployeeSurname</td>
+                <td>@item.Amount</td>
+                <td>@item.UnitPrice</td>
+                <td>@item.TotalPrice</td>
+                <td>@item.SalesDate</td>
+                <td><a href="/Sales/SalesUpdate/@item.SalesTransactionID" class="btn btn-success">Güncelle</a></td>
+                <td><a href="/Sales/SalesDetail/@item.EmployeeID" class="btn btn-info">Detay</a></td>
+                <td><a href="/Sales/SalesDelete/@item.SalesTransactionID" style="color:black"><i class="fa fa-solid fa-trash"></i></a></td>
+
+
+
+            </tr>
+
+        }
+    </tbody>
+
+</table>
+<a href="/Sales/SalesAdd/" class="btn btn-primary">Yeni Satış Ekle</a>
+
+@*<link href="~/Content/bootstrap.css" rel="stylesheet" />*@
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+
+<script>
+
+        $('#tbl1').dataTable({
+            "language": {
+
+                "url": "//cdn.datatables.net/plug-ins/1.10.12/i18n/Turkish.json"
+
+            }
+
+        });
+
+    </script>
+

@@ -1,0 +1,28 @@
+﻿@using EntityLayer.Concrete
+@model Category
+
+@{
+    ViewBag.Title = "CategoryAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<br />
+<h2>Yeni Kategori Sayfası</h2>
+<br />
+
+<form class="form-group" method="post">
+    <div class="form-group">
+        @Html.Label("Kategori Adı")
+        @Html.TextBoxFor(x => x.CategoryName, new { @class="form-control"})
+        @Html.ValidationMessageFor(x => x.CategoryName)
+       
+        <br /><br />
+        <button class="btn btn-info" id="Btn1">Kaydet</button>
+    </div>
+    <script>
+        /*btn1 idli elemanım click olduğunda bir fonksiyon çağırılacak*/
+        $('#Btn1').click(function () {
+            alert("Kategori başarılı bir şekilde eklendi.")
+        });
+    </script>
+</form>

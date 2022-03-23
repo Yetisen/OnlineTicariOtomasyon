@@ -1,0 +1,40 @@
+﻿@using EntityLayer.Concrete
+@model Invoice
+@{
+    ViewBag.Title = "InvoiceUpdate";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Fatura Güncelleme Sayfası</h2>
+<br />
+@using (Html.BeginForm("InvoiceUpdate", "Invoice", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.HiddenFor(x => x.InvoiceID)
+
+    @Html.LabelFor(x => x.InvoiceSerialNo)
+    @Html.TextBoxFor(x => x.InvoiceSerialNo, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.InvoiceOrderNo)
+    @Html.TextBoxFor(x => x.InvoiceOrderNo, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.InvoiceDate)
+    @Html.TextBoxFor(x => x.InvoiceDate, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.InvoiceHour)
+    @Html.TextBoxFor(x => x.InvoiceHour, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.TaxAdministration)
+    @Html.TextBoxFor(x => x.TaxAdministration, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Submitter)
+    @Html.TextBoxFor(x => x.Submitter, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Receiver)
+    @Html.TextBoxFor(x => x.Receiver, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">Güncelle</button>
+</div>
+}
+

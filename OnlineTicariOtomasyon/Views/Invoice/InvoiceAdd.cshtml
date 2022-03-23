@@ -1,0 +1,39 @@
+﻿@using EntityLayer.Concrete
+@model Invoice
+
+@{
+    ViewBag.Title = "InvoiceAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Yeni Fatura Sayfası</h2>
+<br />
+
+<form class="form-group" method="post">
+    <div class="form-group">
+        @Html.Label("Seri No")
+        @Html.TextBoxFor(x => x.InvoiceSerialNo, new { @class = "form-control" })
+        <br />
+        @Html.Label("Sıra No")
+        @Html.TextBoxFor(x => x.InvoiceOrderNo, new { @class = "form-control" })
+        <br />
+        @Html.Label("Tarih")
+        @Html.TextBoxFor(x => x.InvoiceDate, new { @class = "form-control" })
+        <br />
+        @Html.Label("Saat")
+        @Html.TextBoxFor(x => x.InvoiceHour, new { @class = "form-control" })
+        <br />
+        @Html.Label("Vergi Dairesi")
+        @Html.TextBoxFor(x => x.TaxAdministration, new { @class = "form-control" })
+        <br />
+        @Html.Label("Teslim Eden")
+        @Html.TextBoxFor(x => x.Submitter, new { @class = "form-control" })
+        <br />
+        @Html.Label("Teslim Alan")
+        @Html.TextBoxFor(x => x.Receiver, new { @class = "form-control" })
+        <br /><br />
+        <button class="btn btn-info">Kaydet</button>
+    </div>
+</form>
+

@@ -1,0 +1,34 @@
+﻿@using EntityLayer.Concrete
+@model InvoiceItem
+
+@{
+    ViewBag.Title = "InvoiceItemAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Faturaya yeni ürün ekleme sayfası</h2>
+<br />
+
+<form class="form-group" method="post">
+    <div class="form-group">
+        @Html.Label("Açıklama")
+        @Html.TextBoxFor(x => x.Explanation, new { @class = "form-control" })
+        <br />
+        @Html.Label("Miktar")
+        @Html.TextBoxFor(x => x.Amount, new { @class = "form-control" })
+        <br />
+        @Html.Label("Birim Fiyat")
+        @Html.TextBoxFor(x => x.UnitPrice, new { @class = "form-control" })
+        <br />
+        @Html.Label("Tutar")
+        @Html.TextBoxFor(x => x.TotalPrice, new { @class = "form-control" })
+        <br />
+        @Html.Label("Fatura ID")
+        @Html.TextBoxFor(x => x.InvoiceID, new { @class = "form-control" })
+       <br />
+        <button class="btn btn-info">Kaydet</button>
+    </div>
+</form>
+
+

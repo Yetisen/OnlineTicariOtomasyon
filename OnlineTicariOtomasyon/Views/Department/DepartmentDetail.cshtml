@@ -1,0 +1,33 @@
+﻿@using EntityLayer.Concrete
+@model List<Employee>
+@{
+    ViewBag.Title = "DepartmentDetail";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var isim = Model.Select(x => x.Department.DepartmentName).FirstOrDefault();//1değer
+}
+<br />
+<h2>Departman Detayi</h2>
+<br />
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Departman Adı : @isim</li>
+</ol>
+<table class="table table-hover">
+    <tr>
+        
+        <th>Personel</th>
+        <th>Satışlar</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            
+            <td>@item.EmployeeName @item.EmployeeSurname</td>
+            
+            <td><a href="/Department/DepartmentEmployeeSales/@item.EmployeeID" class="btn btn-default" style="background-color:aqua">Satışlar</a></td>
+        </tr>
+    }
+
+
+
+</table>
+

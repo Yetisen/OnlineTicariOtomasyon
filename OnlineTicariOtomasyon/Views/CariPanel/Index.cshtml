@@ -1,0 +1,35 @@
+﻿@using EntityLayer.Concrete
+@model Cari
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_CariLayout.cshtml";
+}
+
+
+<br />
+@using (Html.BeginForm("CariUpdate", "CariPanel", FormMethod.Post))
+{
+    <table class="table table-hover">
+        @Html.HiddenFor(x => x.CariID)
+        <tr>
+            <td><label>Mail Adresi: @HttpContext.Current.User.Identity.Name</label></td>
+        </tr>
+        <tr>
+            <td>@Html.TextBoxFor(x => x.CariName, new { @class = "form-control" })</td>
+        </tr>
+        <tr>
+            <td>@Html.TextBoxFor(x => x.CariSurname, new { @class = "form-control" })</td>
+        </tr>
+        <tr>
+            <td>@Html.TextBoxFor(x => x.CariCity, new { @class = "form-control" })</td>
+        </tr>
+        <tr>
+            <td>@Html.TextBoxFor(x => x.CariPassword, new { @class = "form-control" })</td>
+        </tr>
+
+
+    </table>
+
+    <button class="btn btn-warning">Bilgilerimi Güncelle</button>
+}
+

@@ -1,0 +1,45 @@
+﻿@using EntityLayer.Concrete
+@model List<InvoiceItem>
+@{
+    ViewBag.Title = "InvoiceDetail";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Fatura Detayi</h2>
+<br />
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active"></li>
+</ol>
+<a href="/Invoice/Index/" class="btn btn-info" ><i class="fas fa-solid fa-arrow-left"></i>  Geri</a>
+<br />
+<br />
+<table class="table table-hover">
+    <tr>
+
+        <th>Sıra</th>
+        <th>Açıklama</th>
+        <th>Miktar</th>
+        <th>Birim Fiyat</th>
+        <th>Tutar</th>
+
+    </tr>
+    @{int sirano = 0;}
+    @foreach (var item in Model)
+    {
+<tr>
+    <td> @{sirano++;} @sirano</td>
+    <td>@item.Explanation</td>
+    <td>@item.Amount</td>
+    <td>@item.UnitPrice ₺</td>
+    <td>@item.TotalPrice ₺</td>
+
+</tr>
+    }
+
+
+
+</table>
+
+<a href="/Invoice/InvoiceItemAdd/" class="btn btn-default" style="background-color:darksalmon;color:white">Ürün ekle</a>
+

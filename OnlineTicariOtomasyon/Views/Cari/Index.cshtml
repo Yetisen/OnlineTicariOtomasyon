@@ -1,0 +1,36 @@
+﻿@using EntityLayer.Concrete
+@model List<Cari>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<table class="table table-striped">
+    <tr>
+        <th>Cari ID</th>
+        <th>Ad</th>
+        <th>Soyad</th>
+        <th>Şehir</th>
+        <th>Mail</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+        <th>Detaylar</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.CariID</td>
+            <td>@item.CariName</td>
+            <td>@item.CariSurname</td>
+            <td>@item.CariCity</td>
+            <td>@item.CariMail</td>
+            <td><a href="/Cari/CariDelete/@item.CariID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Cari/CariUpdate/@item.CariID" class="btn btn-warning" style="color:white">Güncelle</a></td>
+            <td><a href="/Cari/CariSales/@item.CariID" class="btn btn-default" style="background-color:lightcoral;color:white">Satış Geçmişi</a></td><!--bu carinin daha önce satın aldığı ürünleri listeleyecek-->
+        </tr>
+    }
+</table>
+
+<a href="/Cari/CariAdd/" class="btn btn-primary">Yeni Cari Ekle</a>
+

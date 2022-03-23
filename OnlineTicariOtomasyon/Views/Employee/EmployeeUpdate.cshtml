@@ -1,0 +1,34 @@
+﻿@model EntityLayer.Concrete.Employee
+@{
+    ViewBag.Title = "EmployeeUpdate";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Personel Güncelleme Sayfası</h2>
+<br />
+@using (Html.BeginForm("EmployeeUpdate", "Employee", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+<div class="form-group">
+    @Html.HiddenFor(x => x.EmployeeID)
+
+    @Html.Label("Employee Adı")
+    @Html.TextBoxFor(x => x.EmployeeName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.EmployeeName, "", new { @style = "color:red" })
+    <br />
+    @Html.Label("Employee Soyadı")
+    @Html.TextBoxFor(x => x.EmployeeSurname, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.EmployeeSurname, "", new { @style = "color:red" })
+    <br />
+    @Html.Label("Resim")
+    @*@Html.TextBoxFor(x => x.EmployeeImage, new { @class = "form-control" })*@
+    <input type="file" name="Görsel Ekle" />
+    <br />
+    @Html.LabelFor(x => x.Department)
+    @Html.DropDownListFor(x => x.DepartmentID, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+    <br />
+
+    <button class="btn btn-success">Güncelle</button>
+</div>
+}
+

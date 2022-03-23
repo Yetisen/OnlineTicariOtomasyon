@@ -1,0 +1,33 @@
+﻿@model EntityLayer.Concrete.Cari
+@{
+    ViewBag.Title = "CariUpdate";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Cari Güncelleme Sayfası</h2>
+<br />
+@using (Html.BeginForm("CariUpdate", "Cari", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.HiddenFor(x => x.CariID)
+
+    @Html.Label("Cari Adı")
+    @Html.TextBoxFor(x => x.CariName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.CariName, "", new { @style = "color:red" })
+    <br />
+    @Html.Label("Cari Soyadı")
+    @Html.TextBoxFor(x => x.CariSurname, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.CariSurname, "", new { @style = "color:red" })
+    <br />
+    @Html.Label("Şehir")
+    @Html.TextBoxFor(x => x.CariCity, new { @class = "form-control" })
+    <br />
+    @Html.Label("Mail")
+    @Html.TextBoxFor(x => x.CariMail, new { @class = "form-control" })
+    <br />
+
+    <button class="btn btn-success">Güncelle</button>
+</div>
+}
+

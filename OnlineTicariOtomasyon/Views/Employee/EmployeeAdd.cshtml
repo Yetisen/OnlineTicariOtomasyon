@@ -1,0 +1,39 @@
+﻿@using EntityLayer.Concrete
+@model Employee
+
+@{
+    ViewBag.Title = "EmployeeAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Yeni Personel Sayfası</h2>
+<br />
+
+@using (Html.BeginForm("EmployeeAdd", "Employee", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <form class="form-group" method="post">
+        <div class="form-group">
+
+            @Html.Label("Personel Adı")
+            @Html.TextBoxFor(x => x.EmployeeName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.EmployeeName, "", new { @style = "color:red" })
+            <br />
+            @Html.Label("Personel Soyadı")
+            @Html.TextBoxFor(x => x.EmployeeSurname, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.EmployeeSurname, "", new { @style = "color:red" })
+            <br />
+            @Html.Label("Resim")
+            @*@Html.TextBoxFor(x => x.EmployeeImage, new { @class = "form-control" })*@
+            <input type="file" name="Görsel Ekle" />
+            <br />
+            @Html.LabelFor(x => x.Department)
+            @Html.DropDownListFor(x => x.DepartmentID, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+            <br />
+
+            <br /><br />
+            <button class="btn btn-info">Kaydet</button>
+        </div>
+    </form>
+
+}

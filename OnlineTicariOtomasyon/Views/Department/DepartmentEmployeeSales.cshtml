@@ -1,0 +1,41 @@
+﻿@using EntityLayer.Concrete
+@model List<SalesTransaction>
+@{
+    ViewBag.Title = "DepartmentEmployeeSales";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Departman Personel Satış</h2>
+<br />
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Personel Adı : @ViewBag.name</li>
+</ol>
+
+<table class="table table-condensed">
+    <tr>
+        
+        <th>Ürün</th>
+        <th>Cari</th>
+        <th>Fiyat</th>
+        <th>Adet</th>
+        <th>Toplam</th>
+        <th>Tarih</th>
+        <th>Yazdır</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            
+            <td>@item.Product.ProductName</td>
+            <td>@item.Cari.CariName @item.Cari.CariSurname</td>
+            <td>@item.UnitPrice ₺</td>
+            <td>@item.Amount</td>
+            <td>@item.TotalPrice</td>
+            <td>@item.SalesDate</td>
+            <td><a href="#" class="btn btn-default" style="background-color:dodgerblue">Yazdır</a></td>
+        </tr>
+    }
+
+
+
+</table>

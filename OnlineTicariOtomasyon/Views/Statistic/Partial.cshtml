@@ -1,0 +1,44 @@
+﻿@using EntityLayer.Concrete
+@model IEnumerable<ClassGroupEmployee>
+
+
+<table class="table ">
+    <thead>
+        <tr>
+            <th style="width: 10px">No</th>
+            <th>Departman</th>
+            <th>Progress</th>
+            <th style="width: 40px">Adet</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{int sirano = 0;}
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@{sirano++;} @sirano</td>
+                <td>@x.Department</td>
+                <td>
+                    <div class="progress progress-xs">
+                        @{var o = (x.Total * 100) / ViewBag.oran; }
+                        @if (o <= 25)
+                        {
+                            <div class="progress-bar progress-bar-danger" style="width: @o%"></div>
+                        }
+                        @if (o <= 50 && o > 25)
+                        {
+                            <div class="progress-bar bg-warning" style="width: @o%"></div>
+                        }
+                        @if (o > 50)
+                        {
+                            <div class="progress-bar bg-success" style="width: @o%"></div>
+                        }
+                    </div>
+                </td>
+                <td><span class="badge bg-danger">@x.Total</span></td>
+            </tr>
+        }
+
+
+    </tbody>
+</table>
